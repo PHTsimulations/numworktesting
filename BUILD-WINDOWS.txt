@@ -1,0 +1,12 @@
+BUILD NOTES (Windows)
+
+This source package does not include the ARM compiler or a prebuilt NWA yet.
+
+1. Install Node.js LTS and npm.
+2. Install an ARM GNU Embedded toolchain (arm-none-eabi-gcc).
+3. Clone/download the official NumWorks epsilon-sample-app-c template.
+4. Copy src/main.c into the template's src folder and update app metadata to Aero DB.
+5. Build with the template's make build command.
+6. Install the resulting .nwa at https://my.numworks.com/apps using Chrome and USB.
+
+The code is an initial prototype and may need small SDK/API adjustments against the current EADK header and app template before it compiles.
