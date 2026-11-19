@@ -1,0 +1,23 @@
+name: Build Aero Database NWA
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: sudo apt-get update && sudo apt-get install -y make gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi npm
+      - name: Build NWA
+        run: make build
+      - name: Upload NWA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AeroDatabase-NWA
+          path: output/AeroDatabase.nwa
+          if-no-files-found: error

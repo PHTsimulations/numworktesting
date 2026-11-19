@@ -1,31 +1,15 @@
-# Aero Database — NumWorks external app (source prototype)
+# Aero Database — NumWorks external app
 
-Offline aircraft type and airline code reference for NumWorks Epsilon external apps.
+Offline prototype for aircraft-type and airline-code browsing.
 
-## Current prototype features
-- Browse a curated aircraft-type list (ICAO-style designators)
-- Browse a curated airline list with IATA, ICAO, callsign and country fields
-- Detail pages and simple calculator-key navigation
-- Offline; no network connection required
+## Cloud build (no Node install on your PC)
 
-**Important:** this is a prototype dataset, not an authoritative or exhaustive database. Codes and callsigns should be checked against official/current sources before relying on them.
+This repository includes a GitHub Actions workflow. Upload/commit these files to the repository root, then open **Actions → Build Aero Database NWA**. If Actions are enabled, a run will start on push; you can also run it manually with **Run workflow**. When it succeeds, download the **AeroDatabase-NWA** artifact. It contains `AeroDatabase.nwa`.
 
-## Build
-This project targets the official NumWorks EADK/NWLink C SDK. Install a compatible ARM GNU embedded toolchain and Node.js/npm, then adapt/use the official `epsilon-sample-app-c` Makefile template. The SDK/compiler is not bundled in this archive.
+## Install
 
-Official app docs and template:
-- https://github.com/numworks/epsilon-sample-app-c
-- https://github.com/numworks/epsilon/tree/master/epsilon/eadk
+Use the NumWorks external-app uploader at https://my.numworks.com/apps and select the downloaded `.nwa` file while the calculator is connected.
 
-Once built, install the generated `.nwa` through NumWorks' external-app uploader: https://my.numworks.com/apps
+## Prototype data notice
 
-## Keyboard
-- Up/Down: browse items
-- OK: view details
-- Back: return to previous menu
-
-## Planned
-- Code search (enter designator / IATA / ICAO / callsign)
-- FAA registry search and registration data importer
-- Expandable database generation script and official-data provenance metadata
-- UI polish and testing on calculator / simulator
+This is a small curated sample, not an official or exhaustive aircraft/airline database. Verify codes and information with authoritative current sources.
